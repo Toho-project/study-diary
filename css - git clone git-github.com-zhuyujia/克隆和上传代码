@@ -1,0 +1,12 @@
+
+克隆到本地（比如克隆 css 的项目）：
+git clone git@github.com:zhuyujia/css.git
+需要注意的是：github 提供了 3 种 url 路径（HTTPS，SSH，Subversion），一般如果账号处于登录状态，那么我们可以用 SSH，就像上面的代码，如果没有登录的话，只能用 HTTPS 的 url 了，如图所示：
+
+克隆成功，如下所示：
+
+四、修改，提交，上传
+我们可以修改克隆到本地的项目，修改完成后先要 add 修改的文件（. 表示全部），然后填写 commit，最后在 push 到 github。
+git add .
+git commit -m 'update'
+git push
