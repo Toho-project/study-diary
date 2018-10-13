@@ -1,0 +1,39 @@
+一、导入所需jar包：
+commons-logging-X.X.jar
+spring-aop-X.XRELEASE.jar
+spring-beans-X.XRELEASE.jar
+spring-context-X.XRELEASE.jar
+spring-core-X.XRELEASE.jar
+spring-expression-X.XRELEASE.jar
+spring-web-X.XRELEASE.jar
+spring-webmvc-X.XRELEASE.jar
+tips：x.x为使用的jar版本
+
+commons-logging.jar包是使用spring的必备包。（位置在spring-framework-2.5.6.SEC01\lib \jakarta-commons）用来记录程序运行时的活动的日志记录。 Commons-logging+log4j : 经典的一个日志实现方案。出现在各种框架里。如spring 、webx 、ibatis 等等。直接使用log4j 即可满足我们的日志方案。但是一般为了避免直接依赖具体的日志实现，一般都是结合commons-logging 来实现
+常见代码如下：
+    import org.apache.commons.logging.Log;
+    import org.apache.commons.logging.LogFactory;
+    private static Log logger = LogFactory.getLog(CommonsLoggingTest.class);
+只要引入了log4j 并在classpath 配置了log4j.xml ，则commons-logging 就会使log4j 使用正常，而代码里不需要依赖任何log4j 的代码。
+
+beans、context、core、expression这四个jar包分别对应spring核心容器（core container）的4部分内容
+其中core和beans组成了框架的基础部分，包括IoC（控制反转）和Dependency injection（依赖注入）。
+context建立在core和beans组成的基础上：提供了框架式访问对象的方式。
+这三个jar包构成了spring的骨架，其中BeanFactory是一个复杂的工厂模式的实现。ApplicationContext接口是context模块的焦点。Spring-context-support提供支持集成常见的第三方库，特别是缓存和调度。
+
+Spring-expression（Spirng expression language）模块提供了一个强大的表达式语言，用于在运行时查询和处理对象图。该语言支持设置和获取属性值；属性赋值，方法调用，访问数组的内容，收集和索引器，逻辑和算术运算，命名变量，并从Spring的IOC容器的名字对象检索，它也支持列表选择和投影以及常见的列表聚合。
+
+spring-web包含web应用开发时，用到spring框架时所需的核心类，包括自动载入webapplicationcontext特性的类、struts与jsf集成类、文件上传的支持类、filter类和大量工具辅助类。
+
+spring-webmvc spring mvc相关，实现springmvc的操作。
+
+spring-aop(Aspect Oriented Programming,面向切面编程)这个jar文件包含在应用中使用Spring的AOP特性时所需的类。使用基于AOP的Spring特性，如声明型事务管理（Declarative Transaction Management），也要在应用里包含这个jar包。
+二、配置Web.xml
+三、在src下添加springmvc-servlet.xml
+四、在WEB-INF文件夹下创建名为jsp的文件夹，用来存放jsp视图。创建一个hello.jsp，在body中添加“Hello World”。
+五、建立包及Controller
+          src
+             test.SpringMVC
+                 mvcController.java
+六、编写Controller代码
+七、启动服务器，键入 http://localhost:8080/项目名/mvc/hello
